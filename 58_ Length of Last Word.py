@@ -24,3 +24,19 @@ class Solution:
             if word!='':
                 return len(word)
         return 0
+
+    class Solution2:
+        def lengthOfLastWord(self, s):
+            """
+            :type s: str
+            :rtype: int
+            """
+            res = 0
+            pre = ''
+            for word in s[::-1]:
+                if word.isalpha():
+                    res += 1
+                if word.isspace() and pre.isalpha():
+                    return res
+                pre = word
+            return res
